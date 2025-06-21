@@ -1,0 +1,231 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<style type="text/css">
+.ansi2html-content { display: inline; white-space: pre-wrap; word-wrap: break-word; }
+.body_foreground { color: #AAAAAA; }
+.body_background { background-color: #000000; }
+.inv_foreground { color: #000000; }
+.inv_background { background-color: #AAAAAA; }
+.ansi1 { font-weight: bold; }
+.ansi32 { color: #00aa00; }
+.ansi90 { color: #7f7f7f; }
+</style>
+</head>
+<body class="body_foreground body_background" style="font-size: normal;" >
+<pre class="ansi2html-content">
+<span class="ansi1">data.aws_availability_zones.available: Reading...</span>
+<span class="ansi1">data.aws_availability_zones.available: Read complete after 0s [id=eu-central-1]</span>
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  <span class="ansi32">+</span> create
+
+Terraform will perform the following actions:
+
+<span class="ansi1">  # module.vpc_creator.aws_internet_gateway.igw[0]</span> will be created
+  <span class="ansi32">+</span> resource "aws_internet_gateway" "igw" {
+      <span class="ansi32">+</span> arn      = (known after apply)
+      <span class="ansi32">+</span> id       = (known after apply)
+      <span class="ansi32">+</span> owner_id = (known after apply)
+      <span class="ansi32">+</span> region   = "eu-central-1"
+      <span class="ansi32">+</span> tags     = {
+          <span class="ansi32">+</span> "Name" = "default-IGW"
+        }
+      <span class="ansi32">+</span> tags_all = {
+          <span class="ansi32">+</span> "Name" = "default-IGW"
+        }
+      <span class="ansi32">+</span> vpc_id   = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_route_table.main</span> will be created
+  <span class="ansi32">+</span> resource "aws_route_table" "main" {
+      <span class="ansi32">+</span> arn              = (known after apply)
+      <span class="ansi32">+</span> id               = (known after apply)
+      <span class="ansi32">+</span> owner_id         = (known after apply)
+      <span class="ansi32">+</span> propagating_vgws = (known after apply)
+      <span class="ansi32">+</span> region           = "eu-central-1"
+      <span class="ansi32">+</span> route            = [
+          <span class="ansi32">+</span> {
+              <span class="ansi32">+</span> cidr_block                 = "0.0.0.0/0"
+              <span class="ansi32">+</span> gateway_id                 = (known after apply)
+                <span class="ansi90"># (11 unchanged attributes hidden)</span>
+            },
+        ]
+      <span class="ansi32">+</span> tags             = {
+          <span class="ansi32">+</span> "Name" = "default-rtb-igw"
+        }
+      <span class="ansi32">+</span> tags_all         = {
+          <span class="ansi32">+</span> "Name" = "default-rtb-igw"
+        }
+      <span class="ansi32">+</span> vpc_id           = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_route_table_association.internet_access["public_1"]</span> will be created
+  <span class="ansi32">+</span> resource "aws_route_table_association" "internet_access" {
+      <span class="ansi32">+</span> id             = (known after apply)
+      <span class="ansi32">+</span> region         = "eu-central-1"
+      <span class="ansi32">+</span> route_table_id = (known after apply)
+      <span class="ansi32">+</span> subnet_id      = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_route_table_association.internet_access["public_2"]</span> will be created
+  <span class="ansi32">+</span> resource "aws_route_table_association" "internet_access" {
+      <span class="ansi32">+</span> id             = (known after apply)
+      <span class="ansi32">+</span> region         = "eu-central-1"
+      <span class="ansi32">+</span> route_table_id = (known after apply)
+      <span class="ansi32">+</span> subnet_id      = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_subnet.private["private_1"]</span> will be created
+  <span class="ansi32">+</span> resource "aws_subnet" "private" {
+      <span class="ansi32">+</span> arn                                            = (known after apply)
+      <span class="ansi32">+</span> assign_ipv6_address_on_creation                = false
+      <span class="ansi32">+</span> availability_zone                              = "eu-central-1b"
+      <span class="ansi32">+</span> availability_zone_id                           = (known after apply)
+      <span class="ansi32">+</span> cidr_block                                     = "10.0.2.0/24"
+      <span class="ansi32">+</span> enable_dns64                                   = false
+      <span class="ansi32">+</span> enable_resource_name_dns_a_record_on_launch    = false
+      <span class="ansi32">+</span> enable_resource_name_dns_aaaa_record_on_launch = false
+      <span class="ansi32">+</span> id                                             = (known after apply)
+      <span class="ansi32">+</span> ipv6_cidr_block_association_id                 = (known after apply)
+      <span class="ansi32">+</span> ipv6_native                                    = false
+      <span class="ansi32">+</span> map_public_ip_on_launch                        = false
+      <span class="ansi32">+</span> owner_id                                       = (known after apply)
+      <span class="ansi32">+</span> private_dns_hostname_type_on_launch            = (known after apply)
+      <span class="ansi32">+</span> region                                         = "eu-central-1"
+      <span class="ansi32">+</span> tags                                           = {
+          <span class="ansi32">+</span> "Name"      = "default-private-subnet-private_1"
+          <span class="ansi32">+</span> "SubnetKey" = "private_1"
+        }
+      <span class="ansi32">+</span> tags_all                                       = {
+          <span class="ansi32">+</span> "Name"      = "default-private-subnet-private_1"
+          <span class="ansi32">+</span> "SubnetKey" = "private_1"
+        }
+      <span class="ansi32">+</span> vpc_id                                         = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_subnet.private["private_2"]</span> will be created
+  <span class="ansi32">+</span> resource "aws_subnet" "private" {
+      <span class="ansi32">+</span> arn                                            = (known after apply)
+      <span class="ansi32">+</span> assign_ipv6_address_on_creation                = false
+      <span class="ansi32">+</span> availability_zone                              = "eu-central-1c"
+      <span class="ansi32">+</span> availability_zone_id                           = (known after apply)
+      <span class="ansi32">+</span> cidr_block                                     = "10.0.4.0/24"
+      <span class="ansi32">+</span> enable_dns64                                   = false
+      <span class="ansi32">+</span> enable_resource_name_dns_a_record_on_launch    = false
+      <span class="ansi32">+</span> enable_resource_name_dns_aaaa_record_on_launch = false
+      <span class="ansi32">+</span> id                                             = (known after apply)
+      <span class="ansi32">+</span> ipv6_cidr_block_association_id                 = (known after apply)
+      <span class="ansi32">+</span> ipv6_native                                    = false
+      <span class="ansi32">+</span> map_public_ip_on_launch                        = false
+      <span class="ansi32">+</span> owner_id                                       = (known after apply)
+      <span class="ansi32">+</span> private_dns_hostname_type_on_launch            = (known after apply)
+      <span class="ansi32">+</span> region                                         = "eu-central-1"
+      <span class="ansi32">+</span> tags                                           = {
+          <span class="ansi32">+</span> "Name"      = "default-private-subnet-private_2"
+          <span class="ansi32">+</span> "SubnetKey" = "private_2"
+        }
+      <span class="ansi32">+</span> tags_all                                       = {
+          <span class="ansi32">+</span> "Name"      = "default-private-subnet-private_2"
+          <span class="ansi32">+</span> "SubnetKey" = "private_2"
+        }
+      <span class="ansi32">+</span> vpc_id                                         = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_subnet.public["public_1"]</span> will be created
+  <span class="ansi32">+</span> resource "aws_subnet" "public" {
+      <span class="ansi32">+</span> arn                                            = (known after apply)
+      <span class="ansi32">+</span> assign_ipv6_address_on_creation                = false
+      <span class="ansi32">+</span> availability_zone                              = "eu-central-1b"
+      <span class="ansi32">+</span> availability_zone_id                           = (known after apply)
+      <span class="ansi32">+</span> cidr_block                                     = "10.0.1.0/24"
+      <span class="ansi32">+</span> enable_dns64                                   = false
+      <span class="ansi32">+</span> enable_resource_name_dns_a_record_on_launch    = false
+      <span class="ansi32">+</span> enable_resource_name_dns_aaaa_record_on_launch = false
+      <span class="ansi32">+</span> id                                             = (known after apply)
+      <span class="ansi32">+</span> ipv6_cidr_block_association_id                 = (known after apply)
+      <span class="ansi32">+</span> ipv6_native                                    = false
+      <span class="ansi32">+</span> map_public_ip_on_launch                        = true
+      <span class="ansi32">+</span> owner_id                                       = (known after apply)
+      <span class="ansi32">+</span> private_dns_hostname_type_on_launch            = (known after apply)
+      <span class="ansi32">+</span> region                                         = "eu-central-1"
+      <span class="ansi32">+</span> tags                                           = {
+          <span class="ansi32">+</span> "Name"      = "default-public-subnet-public_1"
+          <span class="ansi32">+</span> "SubnetKey" = "public_1"
+        }
+      <span class="ansi32">+</span> tags_all                                       = {
+          <span class="ansi32">+</span> "Name"      = "default-public-subnet-public_1"
+          <span class="ansi32">+</span> "SubnetKey" = "public_1"
+        }
+      <span class="ansi32">+</span> vpc_id                                         = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_subnet.public["public_2"]</span> will be created
+  <span class="ansi32">+</span> resource "aws_subnet" "public" {
+      <span class="ansi32">+</span> arn                                            = (known after apply)
+      <span class="ansi32">+</span> assign_ipv6_address_on_creation                = false
+      <span class="ansi32">+</span> availability_zone                              = "eu-central-1c"
+      <span class="ansi32">+</span> availability_zone_id                           = (known after apply)
+      <span class="ansi32">+</span> cidr_block                                     = "10.0.3.0/24"
+      <span class="ansi32">+</span> enable_dns64                                   = false
+      <span class="ansi32">+</span> enable_resource_name_dns_a_record_on_launch    = false
+      <span class="ansi32">+</span> enable_resource_name_dns_aaaa_record_on_launch = false
+      <span class="ansi32">+</span> id                                             = (known after apply)
+      <span class="ansi32">+</span> ipv6_cidr_block_association_id                 = (known after apply)
+      <span class="ansi32">+</span> ipv6_native                                    = false
+      <span class="ansi32">+</span> map_public_ip_on_launch                        = true
+      <span class="ansi32">+</span> owner_id                                       = (known after apply)
+      <span class="ansi32">+</span> private_dns_hostname_type_on_launch            = (known after apply)
+      <span class="ansi32">+</span> region                                         = "eu-central-1"
+      <span class="ansi32">+</span> tags                                           = {
+          <span class="ansi32">+</span> "Name"      = "default-public-subnet-public_2"
+          <span class="ansi32">+</span> "SubnetKey" = "public_2"
+        }
+      <span class="ansi32">+</span> tags_all                                       = {
+          <span class="ansi32">+</span> "Name"      = "default-public-subnet-public_2"
+          <span class="ansi32">+</span> "SubnetKey" = "public_2"
+        }
+      <span class="ansi32">+</span> vpc_id                                         = (known after apply)
+    }
+
+<span class="ansi1">  # module.vpc_creator.aws_vpc.main</span> will be created
+  <span class="ansi32">+</span> resource "aws_vpc" "main" {
+      <span class="ansi32">+</span> arn                                  = (known after apply)
+      <span class="ansi32">+</span> cidr_block                           = "10.0.0.0/16"
+      <span class="ansi32">+</span> default_network_acl_id               = (known after apply)
+      <span class="ansi32">+</span> default_route_table_id               = (known after apply)
+      <span class="ansi32">+</span> default_security_group_id            = (known after apply)
+      <span class="ansi32">+</span> dhcp_options_id                      = (known after apply)
+      <span class="ansi32">+</span> enable_dns_hostnames                 = true
+      <span class="ansi32">+</span> enable_dns_support                   = true
+      <span class="ansi32">+</span> enable_network_address_usage_metrics = (known after apply)
+      <span class="ansi32">+</span> id                                   = (known after apply)
+      <span class="ansi32">+</span> instance_tenancy                     = "default"
+      <span class="ansi32">+</span> ipv6_association_id                  = (known after apply)
+      <span class="ansi32">+</span> ipv6_cidr_block                      = (known after apply)
+      <span class="ansi32">+</span> ipv6_cidr_block_network_border_group = (known after apply)
+      <span class="ansi32">+</span> main_route_table_id                  = (known after apply)
+      <span class="ansi32">+</span> owner_id                             = (known after apply)
+      <span class="ansi32">+</span> region                               = "eu-central-1"
+      <span class="ansi32">+</span> tags                                 = {
+          <span class="ansi32">+</span> "Name" = "default-VPC"
+        }
+      <span class="ansi32">+</span> tags_all                             = {
+          <span class="ansi32">+</span> "Name" = "default-VPC"
+        }
+    }
+
+<span class="ansi1">Plan:</span> 9 to add, 0 to change, 0 to destroy.
+<span class="ansi90">
+─────────────────────────────────────────────────────────────────────────────</span>
+
+Note: You didn't use the -out option to save this plan, so Terraform can't
+guarantee to take exactly these actions if you run "terraform apply" now.
+
+</pre>
+</body>
+
+</html>
