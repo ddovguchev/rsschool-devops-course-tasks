@@ -25,14 +25,14 @@ resource "aws_security_group" "sg" {
 resource "aws_instance" "server" {
   for_each = var.servers_config
 
-  ami           = each.value.server_config.ami
-  instance_type = each.value.server_config.instance_type
-  key_name      = each.value.server_config.key_name != null ? each.value.server_config.key_name : null
-  subnet_id     = each.value.server_config.subnet_id
-  vpc_security_group_ids = [aws_security_group.sg[each.key].id]
-  user_data     = each.value.server_config.user_data
+  ami                         = each.value.server_config.ami
+  instance_type               = each.value.server_config.instance_type
+  key_name                    = each.value.server_config.key_name != null ? each.value.server_config.key_name : null
+  subnet_id                   = each.value.server_config.subnet_id
+  vpc_security_group_ids      = [aws_security_group.sg[each.key].id]
+  user_data                   = each.value.server_config.user_data
   associate_public_ip_address = each.value.server_config.isPublic
-  source_dest_check = each.value.server_config.source_dest_check != null ? each.value.server_config.source_dest_check : true
+  source_dest_check           = each.value.server_config.source_dest_check != null ? each.value.server_config.source_dest_check : true
 
   tags = merge(
     { "Name" = each.key },

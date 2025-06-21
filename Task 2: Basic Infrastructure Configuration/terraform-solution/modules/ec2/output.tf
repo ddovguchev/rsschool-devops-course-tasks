@@ -8,5 +8,5 @@ output "instances_info" {
     ip_private     = v.private_ip
     key_pairs_name = v.key_name != "" ? v.key_name : "No ssh key IP"
 
-  }}
+  } }
 }
